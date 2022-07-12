@@ -1,6 +1,6 @@
 pipeline {
   agent none
-    environment {
+  environment {
     FAVORITE_COLOR = 'RED'
   }
   stages {
@@ -15,8 +15,7 @@ pipeline {
         }
       }
       steps {
-        container('nodejs') {
-          echo 'Hello World!'   
+        container('nodejs') { 
           sh 'node --version'
         }
       }
@@ -29,16 +28,11 @@ pipeline {
       stages {
         stage('Build and Push Image') {
           steps {
-            echo "FAVORITE_COLOR is $FAVORITE_COLOR"
+            echo "FAVORITE_COLOR is $FAVORITE_COLOR"  
             echo "TODO - build and push image"
           }
         }
         stage('Deploy') {
-          steps {
-            echo "TODO - deploy"
-          }
-        }
-                stage('Deploy') {
           environment {
             FAVORITE_COLOR = 'BLUE'
           }
